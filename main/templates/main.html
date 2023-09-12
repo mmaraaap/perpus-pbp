@@ -1,10 +1,63 @@
-<h1>Shopping List Page</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Contoh</title>
+    <style>
+        /* Mengatur tampilan tabel dengan CSS */
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto; /* Untuk tengahkkan tabel di dalam halaman */
+        }
 
-<h5>Name: </h5>
-<p>Perpus Pacil</p> <!-- Ubahlah sesuai dengan nama kamu -->
-<h5>Amount: </h5>
-<p>PBP A</p> <!-- Ubahlah sesuai dengan kelas kamu -->
-<h5>Description: </h5>
-<p>blabla</p>
-<h5>Category: </h5>
-<p>blablabl</p>
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #fff8c3; /* Warna latar belakang header kolom */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Perpus Pacil Page</h1>
+    <h3>{{my_name}}</h3>
+    <h3>{{my_npm}}</h3>
+    <h3>{{my_class}}</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Judul</th>
+                <th>Jumlah</th>
+                <th>Deskripsi</th>
+                <th>Kategori</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{my_list.0.name}}</td>
+                <td>{{my_list.0.amount}}</td>
+                <td>{{my_list.0.description}}</td>
+                <td>{{my_list.0.category}}</td>
+            </tr>
+            <tr>
+                <td>{{my_list.1.name}}</td>
+                <td>{{my_list.1.amount}}</td>
+                <td>{{my_list.1.description}}</td>
+                <td>{{my_list.1.category}}</td>
+            </tr>
+            <tr>
+                <td>{{my_list.2.name}}</td>
+                <td>{{my_list.2.amount}}</td>
+                <td>{{my_list.2.description}}</td>
+                <td>{{my_list.2.category}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
