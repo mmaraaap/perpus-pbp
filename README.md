@@ -214,7 +214,11 @@ d.	Mengembalikan Data Berdasarkan ID dalam Bentuk XML dan JSON
 Dengan mengikuti langkah-langkah ini, aplikasi akan dapat mengelola objek model, menampilkan data dalam berbagai format, dan mengakses data berdasarkan ID.
 
 5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
-![alt text](.png)
+![HTML](HTML.png)
+![XML](XML.png)
+![JSON](JSON.png)
+![XML by ID](XMLID.png)
+![JSON by ID](JSONID.png)
 
 
 Referensi
