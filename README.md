@@ -116,6 +116,7 @@ Referensi
 TUGAS 3
 
 1. Apa perbedaan antara form POST dan form GET dalam Django?
+
 a. Reload
 Post: Data akan di-submit ulang dan user akan diberi peringatan bahwa data akan di-submit ulang
 Get: Tidak akan mengubah data
@@ -141,6 +142,7 @@ Post: Data sensitif akan lebih aman sebab tidak terlihat dalam URL dan pihak ket
 Get: Data akan terlihat dalam URL sehingga akan kurang aman.
 
 2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
 a. XML: Digunakan untuk pertukaran data antar sistem yang berbeda dengan banyak variabel, penyimpanan data, dan konfigurasi. XML menyimpan data dalam struktur pohon dan bersifat kompleks dan kurang fleksibel sehingga memakan banyak ruang. Biasanya XML akan digunakan dalam berbagai macam, seperti dalam layanan web, konfigurasi file, dan pertukaran data yang lebih formal. 
 
 b. JSON: Digunakan dalam pertukaran data antar aplikasi berbasis web dan server, serta menyediakan format yang lebih ringkas. Format JSON menggunakan struktur peta dengan pasangan key-value. JSON bersifat sederhana dan lebih fleksibel, sehingga memiliki ukuran file yang lebih kecil dan transmisi data yang lebih cepat. JSON biasa digunakan untuk API REST karena mudah dalam parsing data menggunakan JavaScript di sisi klien. 
@@ -149,7 +151,9 @@ c. HTML: Digunakan untuk membuat halaman web yang dapat dilihat oleh user melalu
 
 
 3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
 JSON sering digunakan dalam pertukaran data antara aplikasi web modern sebab memiliki beberapa keunggulan, diantaranya:
+
 a. Memiliki struktur data yang fleksibel. Objek dan array bertingkat dapat disimpan sehingga memungkinkan representasi data yang kompleks dan terstruktur. 
 
 b. Mudah dibaca dan ringkas sebab JSON menggunakan sintaks yang mirip dengan JavaScript dan membuatnya mudah untuk diinterpretasi oleh pengembang.
@@ -158,66 +162,77 @@ c. JSON memiliki format yang ringan, yang berarti ukuran payload data JSON akan 
 
 d. JSON dapat digunakan dalam berbagai banyak bahasa pemrograman, sehingga parsing dan pembuatan data JSON bisa dilakukan dengan mudah.
 
-4.	Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-a.	Mengatur Routing dari main/ ke /
-    •	Pada langkah ini, ubah pengaturan routing agar aplikasi dapat mengarahkan ke halaman utama ("/").
-    •	Ini dilakukan dengan membuka berkas "urls.py" dalam folder "inventory_pbp" dan mengubah path dari "main/" menjadi kosong ("").
-    •	Setelah mengubahnya, simpan perubahan dan jalankan server menggunakan perintah "python manage.py runserver".
+4.	Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial). 
 
-b.	Implementasi Skeleton sebagai Kerangka Views
-    •	Buat folder "templates" di direktori utama.
-    •	Buat berkas "base.html" yang berisi kode kerangka dasar tampilan yang telah disediakan.
-    •	Sesuaikan pengaturan TEMPLATES di berkas "settings.py" agar "base.html" dapat dikenali sebagai berkas template.
-    •	Ubah kode dalam berkas "main.html" di direktori "main" sehingga menggunakannya sebagai template utama.
+a. Mengatur Routing dari main/ ke /
+    - Pada langkah ini, ubah pengaturan routing agar aplikasi dapat mengarahkan ke halaman utama ("/").
+    - Ini dilakukan dengan membuka berkas "urls.py" dalam folder "inventory_pbp" dan mengubah path dari "main/" menjadi kosong ("").
+    - Setelah mengubahnya, simpan perubahan dan jalankan server menggunakan perintah "python manage.py runserver".
 
-c.	Membuat Form Input Data dan Menampilkan Data Produk Pada HTML
-    •	Langkah ini berfokus pada pembuatan formulir input data dan tampilan produk pada halaman HTML.
-    •	Buat berkas "forms.py" dalam direktori "main" untuk mendefinisikan struktur form "ProductForm".
-    •	Buka berkas "views.py" dalam folder "main" dan impor yang diperlukan.
-    •	Tambahkan fungsi "create_product" untuk mengelola form input data produk.
-    •	Modifikasi fungsi "show_main" untuk mengambil semua objek "Product".
-    •	Tambahkan path URL untuk "create_product" dalam berkas "urls.py" di direktori "main".
-    •	Buat berkas "create_product.html" untuk menampilkan formulir input data produk.
+b. Implementasi Skeleton sebagai Kerangka Views
+    - Buat folder "templates" di direktori utama.
+    - Buat berkas "base.html" yang berisi kode kerangka dasar tampilan yang telah disediakan.
+    - Sesuaikan pengaturan TEMPLATES di berkas "settings.py" agar "base.html" dapat dikenali sebagai berkas template.
+    - Ubah kode dalam berkas "main.html" di direktori "main" sehingga menggunakannya sebagai template utama.
+
+c. Membuat Form Input Data dan Menampilkan Data Produk Pada HTML
+    - Langkah ini berfokus pada pembuatan formulir input data dan tampilan produk pada halaman HTML.
+    - Buat berkas "forms.py" dalam direktori "main" untuk mendefinisikan struktur form "ProductForm".
+    - Buka berkas "views.py" dalam folder "main" dan impor yang diperlukan.
+    - Tambahkan fungsi "create_product" untuk mengelola form input data produk.
+    - Modifikasi fungsi "show_main" untuk mengambil semua objek "Product".
+    - Tambahkan path URL untuk "create_product" dalam berkas "urls.py" di direktori "main".
+    - Buat berkas "create_product.html" untuk menampilkan formulir input data produk.
 
 d.	Menggunakan Form Input Data
-    •	Pada langkah ini, akan ditampilkan data produk dalam bentuk tabel pada halaman utama.
-    •	Tambahkan tombol "Add New Product" yang akan mengarahkan pengguna ke halaman formulir input data dalam berkas "main.html".
+    - Pada langkah ini, akan ditampilkan data produk dalam bentuk tabel pada halaman utama.
+    - Tambahkan tombol "Add New Product" yang akan mengarahkan pengguna ke halaman formulir input data dalam berkas "main.html".
 
 Selain langkah-langkah di atas, tambahkan juga lima fungsi views tambahan untuk melihat objek yang telah ditambahkan dalam format HTML, XML, JSON, XML berdasarkan ID, dan JSON berdasarkan ID. Setiap langkah memiliki penjelasan dan tindakan yang sesuai, seperti:
+
 a.	Menambahkan data dengan format HTML
-    •	Membuat folder "templates" dalam direktori "main".
-    •	Di dalam folder "templates", membuat berkas HTML yang berisi kode HTML untuk menampilkan daftar produk.
+    - Membuat folder "templates" dalam direktori "main".
+    - Di dalam folder "templates", membuat berkas HTML yang berisi kode HTML untuk menampilkan daftar produk.
 
 b.	Mengembalikan Data dalam Bentuk XML
-    •	Menggunakan HttpResponse dan serializers untuk mengembalikan data dalam format XML.
-    •	Membuat fungsi "show_xml" dalam "views.py" untuk menampilkan data dalam format XML.
-    •	Mengambil semua data dari model "Product" dalam fungsi "show_xml".
-    •	Menggunakan serializers.serialize() untuk mengubah data menjadi format XML.
-    •	Mengembalikan respons dengan data hasil serialisasi dan tipe konten "application/xml".
-    •	Menambahkan path URL untuk mengakses fungsi "show_xml" dalam "urls.py" di direktori "main".
+    - Menggunakan HttpResponse dan serializers untuk mengembalikan data dalam format XML.
+    - Membuat fungsi "show_xml" dalam "views.py" untuk menampilkan data dalam format XML.
+    - Mengambil semua data dari model "Product" dalam fungsi "show_xml".
+    - Menggunakan serializers.serialize() untuk mengubah data menjadi format XML.
+    - Mengembalikan respons dengan data hasil serialisasi dan tipe konten "application/xml".
+    - Menambahkan path URL untuk mengakses fungsi "show_xml" dalam "urls.py" di direktori "main".
 
 c.	Mengembalikan Data dalam Bentuk JSON
-    •	Menggunakan HttpResponse dan serializers untuk mengembalikan data dalam format JSON.
-    •	Membuat fungsi "show_json" dalam "views.py" untuk menampilkan data dalam format JSON.
-    •	Mengambil semua data dari model "Product" dalam fungsi "show_json".
-    •	Menggunakan serializers.serialize() untuk mengubah data menjadi format JSON.
-    •	Mengembalikan respons dengan data hasil serialisasi dan tipe konten "application/json".
-    •	Menambahkan path URL untuk mengakses fungsi "show_json" dalam "urls.py" di direktori "main".
+    - Menggunakan HttpResponse dan serializers untuk mengembalikan data dalam format JSON.
+    - Membuat fungsi "show_json" dalam "views.py" untuk menampilkan data dalam format JSON.
+    - Mengambil semua data dari model "Product" dalam fungsi "show_json".
+    - Menggunakan serializers.serialize() untuk mengubah data menjadi format JSON.
+    - Mengembalikan respons dengan data hasil serialisasi dan tipe konten "application/json".
+    - Menambahkan path URL untuk mengakses fungsi "show_json" dalam "urls.py" di direktori "main".
 
 d.	Mengembalikan Data Berdasarkan ID dalam Bentuk XML dan JSON
-    •	Membuat dua fungsi baru, "show_xml_by_id" dan "show_json_by_id," untuk mengambil data berdasarkan ID dalam format XML dan JSON.
-    •	Dalam kedua fungsi tersebut, data diambil dari model "Product" berdasarkan ID.
-    •	Menggunakan serializers.serialize() untuk mengubah data menjadi format XML atau JSON tergantung pada fungsi yang dipanggil.
-    •	Mengembalikan respons dengan data hasil serialisasi dan tipe konten yang sesuai (XML atau JSON).
-    •	Menambahkan path URL untuk mengakses fungsi "show_xml_by_id" dan "show_json_by_id" dengan menyertakan parameter ID.
+    - Membuat dua fungsi baru, "show_xml_by_id" dan "show_json_by_id," untuk mengambil data berdasarkan ID dalam format XML dan JSON.
+    - Dalam kedua fungsi tersebut, data diambil dari model "Product" berdasarkan ID.
+    - Menggunakan serializers.serialize() untuk mengubah data menjadi format XML atau JSON tergantung pada fungsi yang dipanggil.
+    - Mengembalikan respons dengan data hasil serialisasi dan tipe konten yang sesuai (XML atau JSON).
+    - Menambahkan path URL untuk mengakses fungsi "show_xml_by_id" dan "show_json_by_id" dengan menyertakan parameter ID.
 
 Dengan mengikuti langkah-langkah ini, aplikasi akan dapat mengelola objek model, menampilkan data dalam berbagai format, dan mengakses data berdasarkan ID.
 
 5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+- screenshot dari hasil akses HTML pada Postman
 ![HTML](HTML.png)
+
+- screenshot dari hasil akses XML pada Postman
 ![XML](XML.png)
+
+- screenshot dari hasil akses JSON pada Postman
 ![JSON](JSON.png)
+
+- screenshot dari hasil akses XML by ID pada Postman
 ![XML by ID](XMLID.png)
+
+- screenshot dari hasil akses JSON by ID pada Postman
 ![JSON by ID](JSONID.png)
 
 
