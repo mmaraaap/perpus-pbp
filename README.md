@@ -241,3 +241,78 @@ Referensi
 - Arora, N. (2021, August 16). Render HTML Forms (GET & POST) in Django. Retrieved from geeksforgeeks.org: https://www.geeksforgeeks.org/render-html-forms-get-post-in-django/
 - HTTP Request Methods. (n.d.). Retrieved from https://www.w3schools.com/tags/ref_httpmethods.asp.
 - Jaiswal, A. (n.d.). JSON: Introduction, Benefits, Applications, and Drawbacks. Retrieved from turing.com: https://www.turing.com/kb/what-is-json
+
+
+
+TUGAS 4
+
+1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+Django UserCreationForm adalah pembuatan formulir untuk sign-up. Hal ini berguna untuk mengumpulkan informasi akun pengguna, seperti username, password, password confirmation, dan email.
+
+Kelebihan:
+- Penggunaan yang mudah karena syntax sudah disediakan oleh Django
+- Validasi kata sandi bawaan untuk memastikan bahwa kata sandi dan konfirmasi kata sandi sudah cocok
+- Formulir sudah terintegrasi dengan baik oleh sistem otentikasi Django, sehingga akan mudah untuk membuat akun pengguna.
+
+Kekurangan:
+- Keterbatasan kustomisasi, jika ingin mengubah formulir sesuai dengan keinginan sendiri maka diperlukan formulir kustom sendiri.
+- Untuk informasi pengguna tambahan atau kasus pengguna kompleks maka UserCreationForm tidak akan cukup
+- Jika ada fitur lanjutan seperti autentikasi sosial atau pengelolaan profil pengguna yang lengkap maka akan memakan waktu untuk integrasinya
+
+2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+- Autentikasi: 
+Autentikasi adalah proses verifikasi identitas pengguna untuk memastikan bahwa pengguna memiliki nama pengguna dan kata sandi yang valid. Dalam Django, autentikasi sering kali diimplementasikan dengan menggunakan modul django.contrib.auth. Django juga mendukung metode autentikasi tambahan seperti autentikasi berbasis token, autentikasi pihak ketiga (misalnya, OAuth), dan lainnya. Autentikasi bertujuan untuk melindungi data sensitif dari pengguna yang tidak valid.
+
+- Otorisasi: 
+Otorisasi adalah proses pengaturan izin atau hak akses yang diberikan kepada pengguna yang sudah terautentikasi. Setelah pengguna terautentikasi, sistem akan menentukan apa yang dapat dilakukan pengguna tersebut dalam aplikasi. Dalam Django, otorisasi biasanya diatur melalui sistem pengendalian akses yang menggunakan konsep peran (roles) dan grup pengguna. Otorisasi bertujuan untuk memastikan bahwa pengguna hanya dapat mengakses dan melakukan tindakan yang sesuai dengan roles atau izin mereka. Hal ini agar menjaga kemanan data dan aplikasi.
+
+3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+Cookies adalah file teks kecil yang dibuat dan dikelola oleh browser atau aplikasi web atas permintaan khusus dari server Web. Data yang disimpan dalam cookies dapat diakses oleh server web saat user membuat permintaan berikutnya. 
+Cookies digunakan untuk mengelola data pengguna dengan cara mengidentifikasi pengguna, menyimpan data sesi pengguna, keamanan untuk melindungi cookies dari pihak ketiga yang biasanya menggunakan tanda tangan digital, cookies memiliki waktu kadaluwarsa yang dapat diatur, dan cookies dapat mengatur penyimpanan sesi yang berbeda-beda sesuai dengan aplikasinya.
+
+4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+Cookies tentunya memiliki resiko potensial yang harus diwaspadai. Beberapa diantaranya adalah:
+- Cookies yang digunakan untuk menyimpan informasi sensitif seperti token otentikasi atau data sesi pengguna dapat dicuri atau dimanipulasi datanya
+- Cookies dapat melacak aktivitas pengguna di situs web. Ini dapat digunakan oleh perusahaan atau pihak ketiga untuk menargetkan iklan.
+- Jika cookie yang digunakan untuk mengidentifikasi sesi pengguna dicuri oleh peretas, maka peretas dapat mengakses akun pengguna tanpa perlu login.
+- Terlalu banyak cookies dapat mempengaruhi kinerja situs web dan meningkatkan waktu pemuatan halaman. 
+- ika aplikasi web rentan terhadap XSS, maka cookies pengguna dapat dicuri oleh penyerang dan digunakan untuk akses ilegal.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+a. Membuat Fungsi dan Form Registrasi
+- Buka views.py di subdirektori "main" dan buat fungsi bernama "register" yang menerima parameter request.
+- Import redirect, UserCreationForm, dan messages.
+- Buat berkas HTML baru bernama "register.html" untuk menampilkan formulir pendaftaran.
+- Buka urls.py di subdirektori "main" dan impor fungsi "register".
+- Tambahkan path URL untuk mengakses fungsi "register".
+
+b. Membuat Fungsi Login
+- Buka views.py di subdirektori "main" dan buat fungsi bernama "login_user" yang menerima parameter request.
+- Import authenticate dan login.
+- Buat berkas HTML baru bernama "login.html" untuk menampilkan formulir login.
+- Buka urls.py di subdirektori "main" dan impor fungsi "login_user".
+- Tambahkan path URL untuk mengakses fungsi "login_user".
+
+c. Membuat Fungsi Logout
+- Buka views.py di subdirektori "main" dan buat fungsi bernama "logout_user" yang menerima parameter request.
+- Import logout.
+- Fungsi "logout_user" digunakan untuk melakukan logout pengguna.
+- Buka urls.py di subdirektori "main" dan impor fungsi "logout_user".
+- Tambahkan path URL untuk mengakses fungsi "logout_user".
+
+d. Merestriksi Akses Halaman Main
+- Buka views.py di subdirektori "main" dan import login_required.
+- Tambahkan "@login_required" pada fungsi "show_main" untuk membatasi akses halaman utama hanya untuk pengguna yang sudah login.
+
+e. Data Dari Cookies
+- Buka views.py di subdirektori "main" dan tambahkan import HttpResponseRedirect, reverse, dan datetime.
+- Modifikasi fungsi "login_user" untuk menambahkan cookie "last_login" yang mencatat waktu terakhir pengguna melakukan login.
+- Modifikasi fungsi "show_main" untuk menampilkan data "last_login" dari cookie.
+- Modifikasi fungsi "logout_user" untuk menghapus cookie "last_login" saat pengguna logout.
+- Tambahkan tampilan "last_login" pada berkas HTML "main.html" untuk menampilkan waktu terakhir login.
+- Melakukan migrasi model dengan "python manage.py makemigrations" dan "python manage.py migrate" setelah menghubungkan model "Product" dengan pengguna.
+
+
+Referensi
+- Kehinde, Y. (2020, September 19). UserCreationForm with Multiple fields In Django. Retrieved from dev.to: https://dev.to/yahaya_hk/usercreation-form-with-multiple-fields-in-django-ek9
+- Trudeau, C. (2020). Memulai Dengan Django Bagian 3: Otorisasi Tampilan Django. Retrieved from realpython.com: https://realpython.com/django-view-authorization/
