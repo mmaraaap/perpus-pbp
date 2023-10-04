@@ -1,10 +1,12 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
+{% load static %}
 
 {% block content %}
 
 <style>
     /* Gaya untuk container utama */
-.add-product-container {
+.edit-product-container {
     background-color: #9b4c258e;
     padding: 20px;
     border-radius: 5px;
@@ -15,7 +17,7 @@
 }
 
 /* Gaya untuk judul */
-.add-product-heading {
+.edit-product-heading {
     font-size: 30px;
     color: #333;
     margin-bottom: 20px;
@@ -23,14 +25,14 @@
 }
 
 /* Gaya untuk form */
-.add-product-form {
+.edit-product-form {
     text-align: left;
 }
 
 /* Gaya untuk tombol */
-.add-product-btn {
+.edit-product-btn {
     background-color: #8B4513;
-    color: #fff;
+    color: #ffffffd8;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -39,23 +41,22 @@
 }
 
 /* Efek hover pada tombol */
-.add-product-btn:hover {
+.edit-product-btn:hover {
     background-color: #A0522D;
 }
-
 </style>
 
-<div class="add-product-container">
-    <h1 class="add-product-heading">Add New Product</h1>
+<div class="edit-product-container">
+    <h1 class="edit-product-heading">Edit Product</h1>
 
-    <form method="POST" class="add-product-form">
+    <form method="POST" class="edit-product-form">
         {% csrf_token %}
         <table>
             {{ form.as_table }}
             <tr>
                 <td></td>
                 <td>
-                    <button class="add-product-btn" type="submit">Add Product</button>
+                    <button class="edit-product-btn" type="submit">Edit Product</button>
                 </td>
             </tr>
         </table>

@@ -316,3 +316,53 @@ e. Data Dari Cookies
 Referensi
 - Kehinde, Y. (2020, September 19). UserCreationForm with Multiple fields In Django. Retrieved from dev.to: https://dev.to/yahaya_hk/usercreation-form-with-multiple-fields-in-django-ek9
 - Trudeau, C. (2020). Memulai Dengan Django Bagian 3: Otorisasi Tampilan Django. Retrieved from realpython.com: https://realpython.com/django-view-authorization/
+
+
+TUGAS 5
+1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+- Tag selector(tagname) untuk memilih semua elemen dengan tag HTML tertentu dan untuk mengaplikasikan hal yang sama pada semua elemen dengan tag yang sama.
+- Class Selector (.classname) untuk memilih semua elemen yang mempunyai CSS tertentu. Digunakan untuk menerapkan design yang sama untuk beberapa elemen yang memiliki kelas yang sama
+- elector ID (#idname) untuk memilih elemen dengan identitas unik tertentu, berguna ketika ingin mengaplikasikan gaya secara khusus pada satu elemen yang spesifik.
+- Selector Universal (*) dapat mencakup seluruh elemen dalam halaman HTML, berguna untuk mengimplementasikan gaya dasar atau mereset gaya CSS secara global.
+- Selector Pseudo-class (:pseudo-class) untuk pemilihan elemen berdasarkan kondisi atau tindakan tertentu oleh pengguna, seperti :hover, :active, :nth-child(). Sangat berguna untuk mengubah tampilan ketika interaksi pengguna tertentu terjadi.
+
+2. Jelaskan HTML5 Tag yang kamu ketahui.
+- <header>: Bagian atas dari halaman, biasanya berisi judul dan elemen navigasi.
+- <nav>: Menunjukkan bagian yang berisi menu navigasi.
+- <section>: Memecah halaman menjadi bagian-bagian yang berbeda, seperti bab dalam buku.
+- <article>: Merupakan konten independen yang dapat berdiri sendiri, seperti berita atau blog post.
+- <footer>: Bagian bawah halaman, biasanya berisi informasi kontak atau hak cipta.
+- <aside>: Bagian yang berisi konten terkait, seperti sidebar.
+- <figure>: Menggambarkan media, biasanya digunakan bersama dengan <figcaption> untuk memberikan keterangan.
+
+3. Jelaskan perbedaan antara margin dan padding.
+- Margin: Merupakan ruang yang berada di luar elemen dan dimanfaatkan untuk mengendalikan jarak antara elemen dengan elemen lain yang berada di sekitarnya.
+- Padding: Adalah ruang yang berlokasi di dalam elemen dan digunakan untuk mengatur jarak antara isi elemen dengan batasan elemen itu sendiri.
+
+4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+- Perbedaan
+Tailwind CSS adalah kerangka kerja CSS yang menyajikan banyak kelas CSS kecil yang dapat diterapkan dengan fleksibilitas tinggi dalam pembuatan tampilan web. Ini memungkinkan pengembang untuk menggabungkan kelas-kelas tersebut secara kreatif untuk mengatur tampilan dengan cepat. Tailwind memerlukan penulisan lebih banyak kelas namun memberikan tingkat kendali yang lebih besar terhadap hasil tampilan akhir. Sementara itu, Bootstrap adalah kerangka kerja CSS yang menyediakan komponen UI siap pakai dan gaya bawaan yang dapat diterapkan dengan mudah. Bootstrap memiliki kendali yang lebih terbatas atas tampilan akhir tetapi memungkinkan pengembang untuk dengan cepat membuat tampilan yang konsisten.
+- Kapan menggunakan Bootstrap daripada Tailwind, dan sebaliknya
+Bootstrap akan digunakan jika ingin dengan cepat membangun tampilan web dan memerlukan komponen UI yang sudah jadi. Bootstrap juga akan lebih cocok jika ingin menjaga konsistensi tampilan tanpa harus membuat banyak kode CSS khusus. Sementara itu, Tailwind CSS lebih sesuai jika menginginkan hasil yang sangat tinggi terhadap tampilan akhir dan ingin menghindari penulisan CSS khusus. Tailwind juga ideal jika ingin membuat tampilan yang sangat unik dan tidak bergantung pada komponen UI yang sudah ada sebelumnya.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+- Menambahkan Bootstrap ke Aplikasi
+Pada langkah ini, buka proyek Django dan akses file base.html dalam folder templates. Di dalam file ini, tambahkan tag HTML untuk membuat halaman web responsif terhadap perangkat mobile.
+
+- Tambahkan Bootstrap CSS dan JS
+Tambahkan Bootstrap CSS dan JavaScript ke proyek dengan menyisipkan link CSS Bootstrap ke dalam tag <head> di file base.html, sehingga halaman web dapat mengambil gaya yang diperlukan dari Bootstrap. Perlu juga untuk memasukkan script JavaScript Bootstrap untuk mendukung interaksi antarmuka.
+
+- Menambahkan Navbar pada Aplikasi
+TTambahkan navigation bar (navbar) pada halaman main.html. dan dapat merujuk ke dokumentasi Bootstrap untuk memahami cara membuat navbar dan menyesuaikannya sesuai keinginan.
+
+- Menambahkan Fitur Edit pada Aplikasi
+Buat fungsi baru bernama edit_product di file views.py. Fungsi ini akan mengedit produk yang ada dalam aplikasi. Kemudian, buat berkas HTML baru bernama edit_product.html dalam folder main/templates yang akan digunakan untuk menampilkan formulir pengeditan produk. Setelah itu, atur rute URL ke fungsi edit_product yang telah dibuat dalam file urls.py dan menambahkan tombol "Edit" pada halaman main.html untuk setiap produk.
+
+- Membuat Fungsi untuk Menghapus Data Produk
+Buat fungsi baru bernama delete_product di views.py untuk menghapus data produk. Fungsi ini akan mengambil ID produk yang akan dihapus dan menghapusnya dari database. Selanjutnya, tambahkan rute URL ke fungsi delete_product dalam file urls.py. Terakhir, edit halaman main.html untuk menambahkan tombol "Delete" pada setiap produk, sehingga pengguna dapat menghapus produk dengan mengklik tombol tersebut.
+
+Referensi
+- Aji, D. Y. (2016, May 16). Pengenalan HTML5 | Belajar HTML. Retrieved from codepolitan.com: https://codepolitan.com/blog/pengenalan-html5-belajar-html
+- Juviler, J. (2022, April 20). CSS Margin vs. Padding: What's the Difference? Retrieved from hubspot.com: https://blog.hubspot.com/website/css-margin-vs-padding
+- Murphy, C. (2022, October 18). Tailwind CSS vs. Bootstrap: Which is better? Retrieved from prismic.io: https://prismic.io/blog/tailwind-vs-bootstrap
+
