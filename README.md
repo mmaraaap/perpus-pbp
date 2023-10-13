@@ -366,3 +366,67 @@ Referensi
 - Juviler, J. (2022, April 20). CSS Margin vs. Padding: What's the Difference? Retrieved from hubspot.com: https://blog.hubspot.com/website/css-margin-vs-padding
 - Murphy, C. (2022, October 18). Tailwind CSS vs. Bootstrap: Which is better? Retrieved from prismic.io: https://prismic.io/blog/tailwind-vs-bootstrap
 
+
+TUGAS 6
+1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+-> Asynchronous Programming:
+- Program dijalankan secara tidak berurutan. Tugas dapat dimulai, dan program dapat melanjutkan eksekusi tanpa harus menunggu tugas tersebut selesai.
+- Sangat cocok untuk tugas-tugas yang membutuhkan waktu, seperti permintaan jaringan, pengolahan yang panjang, atau interaksi dengan I/O (input/output).
+- Biasanya menggunakan callback, promise, atau async/await untuk mengelola tugas-tugas yang bersifat asinkron.
+
+-> Synchronous Programming:
+- Program dijalankan secara berurutan, di mana perintah berikutnya hanya akan dieksekusi setelah perintah sebelumnya telah selesai.
+- Jika ada tugas yang membutuhkan waktu, seperti pengambilan data dari jaringan atau operasi yang berat, program akan berhenti dan menunggu hingga tugas tersebut selesai. Hal ini dapat mengganggu responsivitas program.
+- Tidak membutuhkan konsep seperti callback atau promise.
+
+2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+-> Paradigma Event-Driven Programming dalam JavaScript dan AJAX adalah suatu paradigma pemrograman yang alur programnya ditentukan oleh suatu event / peristiwa yang merupakan keluaran atau tindakan pengguna atau bisa berupa pesan dari program lainnya. Hal ini berguna ketika program merespons peristiwa atau event yang terjadi, seperti klik tombol, input pengguna, atau respons dari permintaan jaringan. Contoh penerapannya pada tugas ini ialah event listener "click" pada sebuah tombol, dan ketika tombol tersebut diklik, fungsi yang sudah tentukan akan dijalankan, seperti tombol delete yang ketika di click akan menjalankan perintah untuk menghapus sebuah product.
+
+3. Jelaskan penerapan asynchronous programming pada AJAX.
+-> Dalam AJAX, pemrograman asynchronous memungkinkan  untuk melakukan permintaan jaringan tanpa mengganggu jalannya program. XMLHttpRequest atau Fetch API dapat digunakan untuk melakukan permintaan asynchronous ke server. Ini juga dapat menggunakan fungsi callback, promise, atau async/await untuk mengelola respons dari server saat data telah diterima. Hal ini memastikan bahwa aplikasi web tetap responsif dan tidak terhenti selama proses pengambilan data dari server.
+
+4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+-> Fetch API sudah terintegrasi di browser modern yang memungkinkan permintaan jaringan dengan sintaks yang lebih simpel dan rapi. Lebih ringan dibandingkan jQuery karena hanya berfokus pada permintaan jaringan. Selain itu, dapat digunakan bersama dengan async/await, yang membuat kode menjadi lebih mudah untuk dibaca. Tetapi, tidak memiliki dukungan langsung untuk tugas-tugas seperti animasi atau manipulasi DOM.
+
+-> jQuery adalah library JavaScript yang komprehensif, yang dapat memudahkan pembuatan permintaan jaringan. Memiliki berbagai utilitas dan metode bantu yang berguna dalam pengembangan web, seperti animasi, manipulasi DOM, dan penanganan event. Namun, ukuran file jQuery lebih besar dibandingkan Fetch API, yang dapat memperlambat waktu loading dalam aplikasi. Terkadang penggunaan jQuery akan berlebihan jika hanya untuk AJAX.
+
+-> Pilihan antara Fetch API dan jQuery tergantung pada kebutuhan. Jika hanya perlu mengelola permintaan jaringan dan menginginkan kode yang lebih ringan, akan cocok jika menggunakan Fetch API. Namun, jika membutuhkan banyak utilitas tambahan dan dukungan untuk tugas-tugas web lainnya, maka menggunakan jQuery akan lebih cocok.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+-> Mengubah Tugas 5 yang sebelumnya dibuat untuk menggunakan AJAX.
+
+1. AJAX GET
+
+a. Modifikasi kode kartu data item agar mendukung AJAX GET. Kode telah mendukung AJAX GET dengan menggunakan fetch untuk mengambil data produk dari {% url ‘main:get_product_json’ %}. Data ini kemudian digunakan untuk memperbarui tampilan produk tanpa perlu me-refresh halaman secara keseluruhan.
+
+b. Melakukan pengambilan tugas menggunakan AJAX GET.
+- Di Kode HTML: Fungsi getProducts() sudah ada dalam kode HTML. Ini adalah fungsi yang mengambil data produk menggunakan AJAX GET.
+- Di Fungsi refreshProducts(): Setelah mendapatkan data produk dengan menggunakan getProducts(), tampilan produk diperbarui dengan data baru. Ini termasuk pembuatan elemen kartu baru untuk setiap produk dan menambahkannya ke dalam kontainer produk.
+
+2. AJAX POST
+
+a. Membuat tombol yang membuka modal dengan form untuk menambahkan item.
+- Di Kode HTML: Ada tombol dengan kelas btn btn-primary yang memiliki atribut data-bs-toggle=“modal” dan data-bs-target=“#addProductModal”. Tombol ini untuk pembukaan modal.
+- Di Modal untuk Menambahkan Produk Baru: Modal memiliki ID addProductModal.
+
+b. Modal diaktifkan dengan menekan tombol pada halaman utama. Saat penambahan item berhasil, modal harus ditutup dan form input harus dibersihkan dari data yang sudah dimasukkan ke dalam form sebelumnya.
+- Setelah form disubmit, fungsi addProduct() akan dipanggil. Fungsi ini mengirimkan data form menggunakan metode POST dengan AJAX
+- Setelah berhasil, refreshProducts() akan dipanggil untuk memperbarui tampilan produk.
+- Setelah pengiriman berhasil, form akan direset menggunakan document.getElementById(“form”).reset() untuk membersihkan data yang telah dimasukkan.
+- Modal akan ditutup secara otomatis karena tombol “Add Product” dalam modal memiliki atribut data-bs-dismiss=“modal”.
+
+c. Membuat fungsi view baru untuk menambahkan item baru ke dalam basis data. Menambahkan view baru dalam Django yang akan menangani permintaan untuk menambahkan item baru. Proses ini melibatkan pengiriman data dari formulir modal ke server.
+
+d. Membuat path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat. Dalam file urls.py aplikasi, menambahkan path baru yang akan menangani permintaan POST dari formulir modal.
+
+e. Menghubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/. Di dalam formulir modal, pastikan atribut action mengarah ke path /create-ajax/ yang telah ditambahkan sebelumnya.
+
+f. Melakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar item terbaru tanpa reload halaman utama secara keseluruhan. Setelah berhasil menambahkan item melalui AJAX POST, juga telah mengimplementasikan metode asinkron untuk memperbarui daftar item tanpa perlu me-refresh seluruh halaman.
+
+3. Melakukan perintah collectstatic. Melakukan perubahan di settings.py, pada bagian static_root yang sebelumnya ‘static’ diubah menjadi ‘staticfiles’ lalu pada cmd melakukan python manage.py collectstatic
+
+
+References
+- Andika, M. R. (2017). APA ITU PEMOGRAMMAN EVENT DRIVEN? Retrieved from https://muhammadriandiandika.blogspot.com/2017/07/apa-itu-pemogramman-event-driven.html
+- Syekh, R. (2022, March 8). Apakah AJAX digantikan oleh ambil API()? Retrieved from medium.com: https://medium.com/@reemshakes/is-ajax-getting-replaced-by-fetch-api-55207234793f
+
